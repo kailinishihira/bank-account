@@ -1,45 +1,52 @@
-// Business Logic -->
-
-var balance;
-
 function Account(name, balance) {
-  this.accountName = name;
+  this.name = name;
   this.balance = balance;
 }
 
-
-Account.prototype.deposit = function() {
-  this.balance += this.deposit;
-  return this.balance;
+Account.prototype.add = function (deposit) {
+  return this.balance += deposit
 }
 
-Account.prototype.withdrawal = function() {
-  this.balance -= this.withdrawal;
-  return this.balance;
+Account.prototype.subtrace = function (withdrawal) {
+  return this.balance += withdrawal
 }
 
-// UI Logic -->
-$(function(){
-  $("form#initial-form").submit(function(event){
+var runningBalance;
+
+$(document).ready(function() {
+  $("form#intial-form").submit(function(event) {
     event.preventDefault();
-    debugger;
 
-    var name = $("#new-name").val();
-    var initialDeposit = parseInt($("#initial-deposit").val());
-    var newAccount = new Account(name, initialDeposit);
-    balance = initialDeposit;
-    $(".current-name").text(newAccount.name);
-    $(".current-bal").text(newAccount.balance);
+    var inputtedName = $("#new-name").val();
+    var inputtedBalance = parseInt($("#initial-deposit").val());
+    var newAccount = new Acccount(inputtedName, inputtedBalance);
+    runningBalance = newAccount.balance;
 
+    $(".bank-balance").text(runningBalance);
+
+    $("#new-name").val("");
+    ("#initial-deposit").val("");
   });
 
-  $("form#transaction-form").submit(function(event){
+  $("#deposit-form").submit(function(event) {
     event.preventDefault();
 
-    var depositValue = parseInt($("#deposit").val());
-    var withdrawalValue = parseInt($("#withdrawal").val());
+    var inputtedDeposit = parseInt($("#deposit").val());
+    runningBalance = newAccount.add(inputtedDeposit);
 
-    var newTransaction = new Transaction(depositValue)
+    $(".bank-balance").text(runningBalance);
 
-  })
+    $("#deposit").val("");
+  });
+
+  $("#withdrawal-form").submit(function(event) {
+    event.preventDefault();
+
+    var inputtedDeposit = parseInt($("#withdrawal").val());
+    runningBalance = newAccount.subtract(inputtedWithdrawal);
+
+    $(".bank-balance").text(runningBalance);
+
+    $("#withdrawal").val("");
+  });
 });
