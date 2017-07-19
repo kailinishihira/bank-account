@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Epicodus Credit Union</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the Epicodus Credit Union!</h1>
+
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+
+          <div class="col-md-4 initial">
+            <form id="initial-form">
+              <div class="form-group">
+                <label for="new-name">Name: </label>
+                <input type="text" class="form-control" id="new-name">
+              </div>
+              <div class="form-group">
+                <label for="initial-deposit">Initial Deposit: </label>
+                <input type="text" class="form-control" id="initial-deposit">
+              </div>
+              <button type="submit" class="btn btn-info">Create Account</button>
+            </form>
+          </div>
+
+          <div class="col-md-4 trans">
+            <form id="deposit-form">
+              <div class="form-group">
+                <label for="deposit">Deposit Amount: </label>
+                <input type="number" class="form-control" id="deposit">
+              </div>
+              <button type="submit" class="btn btn-info">Enter</button>
+            </form>
+            <form id="withdrawal-form">
+              <div class="form-group">
+                <label for="withdrawal">Withdrawal Amount: </label>
+                <input type="number" class="form-control" id="withdrawal">
+              </div>
+                <button type="submit" class="btn btn-info">Enter</button>
+            </form>
+          </div>
+          <div class="col-md-2">
+          </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <div class="output">
+          <p><span class="cust-name"></span>, Your Current Balance is $<span class="current-bal"></span></p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
