@@ -3,50 +3,51 @@ function Account(name, balance) {
   this.balance = balance;
 }
 
-Account.prototype.add = function (deposit) {
-  return this.balance += deposit
+Account.prototype.add = function() {
+  return this.balance += deposit;
 }
 
-Account.prototype.subtrace = function (withdrawal) {
-  return this.balance += withdrawal
+Account.prototype.subtract = function() {
+  return this.balance -= withdrawal;
 }
 
-var runningBalance;
+var deposit;
+var withdrawal;
+var newAccount;
 
 $(document).ready(function() {
-  $("form#intial-form").submit(function(event) {
+  $("form#initial-form").submit(function(event) {
     event.preventDefault();
 
     var inputtedName = $("#new-name").val();
     var inputtedBalance = parseInt($("#initial-deposit").val());
-    var newAccount = new Acccount(inputtedName, inputtedBalance);
-    runningBalance = newAccount.balance;
+    newAccount = new Account(inputtedName, inputtedBalance);
 
-    $(".bank-balance").text(runningBalance);
+    $(".bank-balance").text(newAccount.balance);
 
     $("#new-name").val("");
-    ("#initial-deposit").val("");
+    $("#initial-deposit").val(0);
   });
 
   $("#deposit-form").submit(function(event) {
     event.preventDefault();
 
-    var inputtedDeposit = parseInt($("#deposit").val());
-    runningBalance = newAccount.add(inputtedDeposit);
+    deposit = parseInt($("#deposit").val());
+    newAccount.balance = newAccount.add();
 
-    $(".bank-balance").text(runningBalance);
+    $(".bank-balance").text(newAccount.balance);
 
-    $("#deposit").val("");
+    $("#deposit").val(0);
   });
 
   $("#withdrawal-form").submit(function(event) {
     event.preventDefault();
 
-    var inputtedDeposit = parseInt($("#withdrawal").val());
-    runningBalance = newAccount.subtract(inputtedWithdrawal);
+    withdrawal = parseInt($("#withdrawal").val());
+    newAccount.balance = newAccount.subtract();
 
-    $(".bank-balance").text(runningBalance);
+    $(".bank-balance").text(newAccount.balance);
 
-    $("#withdrawal").val("");
+    $("#withdrawal").val(0);
   });
 });
